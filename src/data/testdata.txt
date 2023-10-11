@@ -1,0 +1,5 @@
+390 Exam;1;12;10
+350 Exam;1;13;10
+Laundry;3;13;10
+Work Shift;2;24;10
+Dentist;3;24;10
