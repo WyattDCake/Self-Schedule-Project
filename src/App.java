@@ -5,5 +5,6 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         UserInterface UI = new UserInterface(scanner);
         UI.start();
+        new GUI();
     }
 }
