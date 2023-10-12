@@ -2,14 +2,15 @@ public class Event implements Comparable<Event>{
 
     private String eventName;
     private int eventID;
-    private int day;
     private int month;
+    private int day;
+
     
-    public Event(String name,int id,int d,int m){
+    public Event(String name,int id,int m,int d){
         this.eventName = name;
         this.eventID = id;
-        this.day = d;
         this.month = m;
+        this.day = d;
     }
     
     @Override
@@ -64,11 +65,11 @@ public class Event implements Comparable<Event>{
 
     public void display(){
         System.out.println(eventName);
-        System.out.println("   Due: " + day + "/" + month);
+        System.out.println("   Due: " + month + "/" + day);
     }
     @Override
     public String toString(){
-        return (eventName+";"+eventID+";"+day+";"+month+"\n");
+        return (eventName+";"+eventID+";"+month+";"+day+"\n");
     }
 }   
 

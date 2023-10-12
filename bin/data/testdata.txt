@@ -1,5 +1,5 @@
-390 Exam;1;12;10
-Dentist;3;24;10
-350 Exam;1;13;10
-Work Shift;2;24;10
-Laundry;3;13;10
+Get a Job;3;10;14
+350 : Assignment;1;10;19
+Work Shift;2;10;24
+Dentist;3;10;24
+Laundry;3;11;13
