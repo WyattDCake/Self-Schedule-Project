@@ -1,10 +1,14 @@
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class SceneController {
 
@@ -12,7 +16,19 @@ public class SceneController {
     private Scene scene;
     private Parent root;
     String css = this.getClass().getResource("sceneDesign.css").toExternalForm();
+    InputOutput inputOutput;
+    ArrayList<Event> schedule;
+    @FXML
+    private Text displayText = new Text();
 
+    @FXML
+    public void initialize(){
+        inputOutput = new InputOutput();
+        schedule = inputOutput.inputSchedule();
+        Collections.sort(schedule);
+        displaySchedule();
+    }
+  
     public void switchToMainScene(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("mainScene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -65,4 +81,15 @@ public class SceneController {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
+    @FXML
+    public void displaySchedule(){
+        StringBuilder text = new StringBuilder();
+        for(Event event : schedule){
+            text.append(event.getName()).append("\n");
+            text.append("   Due: "+event.getMonth()+"/"+event.getDay()+"\n");
+        }
+        displayText.setText(text.toString());
+    }
+
+
 }

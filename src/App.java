@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application{
@@ -14,6 +15,9 @@ public class App extends Application{
             String css = this.getClass().getResource("sceneDesign.css").toExternalForm();
             scene.getStylesheets().add(css);
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Schedule");
+            Image icon = new Image("schedule.png");
+            primaryStage.getIcons().add(icon);
             primaryStage.show();
         } catch(IOException e){
             e.printStackTrace();

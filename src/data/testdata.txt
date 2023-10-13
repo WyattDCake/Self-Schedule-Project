@@ -3,3 +3,4 @@ Get a Job;3;10;14
 Work Shift;2;10;24
 Dentist;3;10;24
 Laundry;3;11;13
+work Shift;2;10;30
