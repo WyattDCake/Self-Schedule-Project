@@ -29,7 +29,7 @@ public class UserInterface {
         input = input.toUpperCase();
         switch(input){
             case "D":
-                displaySchedule(schedule);
+                displaySchedule(schedule);//want to merge w/ completed and edit. (merge completly with completed, only be the acces for edit)
                 break;
             case "W":
                 addWorkShift(schedule, scanner);

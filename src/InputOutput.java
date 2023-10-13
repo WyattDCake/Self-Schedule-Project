@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class InputOutput {
     
-    private String filePath = "src/data/testdata.txt";
+    private String filePath = "testdata.txt";
     private BufferedReader reader;
     private FileWriter writer; 
     public InputOutput(){

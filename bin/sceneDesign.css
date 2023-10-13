@@ -1,0 +1,20 @@
+.root{
+    -fx-background-color: lavender;
+}
+
+.button{
+    -fx-background-color: purple;
+    -fx-text-fill: black;
+
+    -fx-border-color:black;
+    -fx-border-width:2;
+    -fx-border-radius:5;
+}
+
+.button:hover{
+    -fx-background-color: rgb(54, 1, 54);
+}
+
+.label{
+    -fx-text-fill: purple;
+}
