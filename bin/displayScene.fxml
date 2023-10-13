@@ -22,6 +22,5 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Label fx:id="testLabel" layoutX="732.0" layoutY="83.0" text="Label" />
    </children>
 </AnchorPane>
