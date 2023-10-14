@@ -54,6 +54,7 @@ public class InputOutput {
         }
         close();
     }
+   
     public void close(){
         try{
             if(reader != null){

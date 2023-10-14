@@ -5,13 +5,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -24,20 +30,16 @@ public class SceneController {
     InputOutput inputOutput;
     ArrayList<Event> schedule;
     private Image mainImage = new Image("main.png");
-    /* all from failed Slider attempt
-    @FXML 
-    private Slider startTimeSlider = new Slider();
-    @FXML
-    private Slider endTimeSlider = new Slider();
-    @FXML 
-    private Label startLabel = new Label();
-    @FXML
-    private Label endLabel = new Label();
-    */
     @FXML
     private Text displayText = new Text();
     @FXML
     private ImageView mainView = new ImageView();
+    @FXML
+    private DatePicker datePicker = new DatePicker();
+    @FXML
+    private TextField classID = new TextField();
+    @FXML
+    private TextField classAssignment = new TextField();
 
     @FXML
     public void initialize(){
@@ -49,11 +51,6 @@ public class SceneController {
         displaySchedule();
         //set mainView = mainImage
         mainView.setImage(mainImage);
-        /*startTimeSlider settings
-        startTimeSlider.valueProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
-        startLabel.setText("Shift Starts at: " + getTime(newValue.intValue()));
-        });
-        */
     }
   
     public void switchToMainScene(ActionEvent event) throws IOException{
@@ -105,8 +102,9 @@ public class SceneController {
         stage.show();
     }
     public void exitProgram(ActionEvent event) throws IOException{
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
+        inputOutput.close();
     }
     @FXML
     public void displaySchedule(){
@@ -116,41 +114,29 @@ public class SceneController {
             text.append("   Due: "+event.getMonth()+"/"+event.getDay()+"\n");
         }
         displayText.setText(text.toString());
+        System.out.println(text);
     }
     public void addEditButtons(){
         
     }
-    /* failed slider experiement
-    public String getTime(int time){
-        String stringAMPM = " AM";
-        int hour = 0;
-        String min;
-        while(time > 4){
-            time-=4;
-            hour++;
+
+    @FXML
+    public void addSchoolWork(ActionEvent event){
+        String id = classID.getText();
+        String assignment = classAssignment.getText();
+        String task = id+": "+assignment;
+        LocalDate date = datePicker.getValue();
+        String m = date.format(DateTimeFormatter.ofPattern("MM"));
+        String d = date.format(DateTimeFormatter.ofPattern("dd"));
+        int month = Integer.parseInt(m);
+        int day = Integer.parseInt(d);
+        schedule.add(new Event(task,1,month, day));
+        inputOutput.outputSchedule(schedule);
+        try{
+        switchToMainScene(event);
+        }catch(IOException e){
+            System.out.println(e);
         }
-        if(hour > 12){
-            stringAMPM =" PM";
-            hour-=12;
-        }
-        switch(time){
-            case 0:
-                min = ":00";
-                break;
-            case 1:
-                min = ":15";
-                break;
-            case 2:
-                min = ":30";
-                break;
-            case 3:
-                min = ":45";
-                break;
-            default:
-                min = "error";
-                break;
-        }
-        return (String.valueOf(hour)+min+stringAMPM);
     }
-    */
+    
 }

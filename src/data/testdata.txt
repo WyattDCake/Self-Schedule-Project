@@ -2,5 +2,6 @@ Get a Job;3;10;14
 350 : Assignment;1;10;19
 Work Shift;2;10;24
 Dentist;3;10;24
-Laundry;3;11;13
 work Shift;2;10;30
+Laundry;3;11;13
+350: User Stories;1;10;16
