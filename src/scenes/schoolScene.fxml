@@ -14,7 +14,7 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <DatePicker fx:id="datePicker" layoutX="764.0" layoutY="335.0" />
+      <DatePicker fx:id="classDate" layoutX="764.0" layoutY="335.0" />
       <TextField fx:id="classID" layoutX="439.0" layoutY="335.0" prefHeight="25.0" prefWidth="50.0" />
       <TextField fx:id="classAssignment" layoutX="564.0" layoutY="335.0" />
       <Label layoutX="446.0" layoutY="318.0" prefHeight="17.0" prefWidth="492.0" text="Class #                          Assignment                                        Due Date" />

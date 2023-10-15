@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -14,13 +14,25 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <Slider fx:id="startTime" blockIncrement="1.0" layoutX="465.0" layoutY="256.0" majorTickUnit="4.0" max="96.0" minorTickCount="1" prefHeight="14.0" prefWidth="351.0" showTickMarks="true" />
-      <DatePicker layoutX="553.0" layoutY="414.0" />
-      <Label layoutX="444.0" layoutY="147.0" text="i saw these and went &quot;woah thats what I need&quot; idk how they work yet" />
       <Button layoutX="14.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="50.0" prefWidth="150.0" text="Back to Main" />
-      <Button layoutX="1116.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="50.0" prefWidth="150.0" text="Add Shift" />
-      <Slider fx:id="endTime" blockIncrement="1.0" layoutX="465.0" layoutY="319.0" majorTickUnit="4.0" max="96.0" minorTickCount="1" prefHeight="14.0" prefWidth="351.0" showTickMarks="true" />
-      <Label fx:id="startLabel" layoutX="465.0" layoutY="239.0" text="Label" />
-      <Label fx:id="endLabel" layoutX="465.0" layoutY="302.0" text="Label" />
+      <Button layoutX="1116.0" layoutY="656.0" mnemonicParsing="false" onAction="#addWorkShift" prefHeight="50.0" prefWidth="150.0" text="Add Shift" />
+      <Label layoutX="209.0" layoutY="232.0" text="Shift Starts at: ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="209.0" layoutY="267.0" text="Shift Ends at: ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="startTime" layoutX="362.0" layoutY="237.0" promptText="HH:mm AM/PM" />
+      <TextField fx:id="endTime" layoutX="362.0" layoutY="272.0" promptText="HH:mm AM/PM" />
+      <DatePicker fx:id="workDate" layoutX="689.0" layoutY="230.0" prefHeight="68.0" prefWidth="177.0" />
+      <Label layoutX="558.0" layoutY="250.0" text="Shift Date:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

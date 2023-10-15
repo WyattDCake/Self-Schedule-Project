@@ -22,10 +22,6 @@ public class App extends Application{
             Image icon = new Image("schedule.png");
             primaryStage.getIcons().add(icon);
             primaryStage.show();
-            primaryStage.setOnCloseRequest(event->{
-                event.consume();
-                logout(primaryStage);
-            });
 
         } catch(IOException e){
             e.printStackTrace();

@@ -63,9 +63,8 @@ public class Event implements Comparable<Event>{
         this.month = m;
     }
 
-    public void display(){
-        System.out.println(eventName);
-        System.out.println("   Due: " + month + "/" + day);
+    public String display(){
+        return(eventName+"\n   Due: " + month + "/" +day);
     }
     @Override
     public String toString(){

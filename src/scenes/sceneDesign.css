@@ -18,3 +18,13 @@
 .label{
     -fx-text-fill: purple;
 }
+
+.pagination{
+    -fx-background-color: transparent;
+    -fx-font-size: 20px;
+}
+
+.pagination .pager-button{
+    -fx-background-color: transparent;
+    -fx-font-size: 20px;
+}
