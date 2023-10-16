@@ -21,10 +21,10 @@
 
 .pagination{
     -fx-background-color: transparent;
-    -fx-font-size: 20px;
+    -fx-font-size: 19px;
 }
 
 .pagination .pager-button{
     -fx-background-color: transparent;
-    -fx-font-size: 20px;
+    -fx-font-size: 19px;
 }
