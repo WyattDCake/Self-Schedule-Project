@@ -1,7 +1,44 @@
-Work:10:30 AM-7:30 PM;2;10;16
-350: User Stories //Edit;1;10;17
-350 : Assignment;1;10;19
-417: Class Meeting;1;10;20
-Get a Job;3;10;20
-Work Shift;2;10;24
+300: Module 7;1;10;15
+350: Module 7;1;10;19
+300: Module 8 Discussion;1;10;19
+390: Module 7;1;10;21
+300: Module 8 Quiz + Lab;1;10;22
+417: Homework 5;1;10;23
+417: Project - Piecewise Interpolation;1;10;23
 Dentist;3;10;24
+350: Module 8;1;10;25
+300: Module 9 Discussion;1;10;26
+390: Module 8;1;10;28
+300: Module 9 Quiz + Lab;1;10;29
+417: Homework 6;1;10;30
+300: Module 10 Discussion;1;11;2
+300: Module 14 Discussion;1;11;30
+390: Module 9;1;11;4
+350: Module 9+10;1;11;4
+350 Lab: Phase 3;1;11;4
+300: Module 10 Quiz + Lab;1;11;5
+417: Homework 7;1;11;6
+300: Module 11 Discussion;1;11;9
+350: Module 11;1;11;11
+417: Exam 2;1;11;11
+300: Module 11 Quiz + Lab;1;11;12
+390: Module 10;1;11;14
+300: Module 12 Discussion;1;11;16
+350: Module 12;1;11;18
+300: Module 12 Quiz + Lab;1;11;19
+417: Project - Least Squares Approximation;1;11;20
+350: Sign Up for Final;1;11;21
+300: Module 13 Discussion;1;11;23
+350 Lab: Phase 4;1;11;26
+300: Module 13 Quiz + Lab;1;11;26
+390: Sign Up for Final;1;11;30
+350: Module 13;1;12;1
+417: Homework 8,9,10;1;12;1
+390: Module 11;1;12;2
+300: Module 14 Quiz + Lab;1;12;3
+417: Semester Project ;1;12;4
+300: Module 15 Discussion;1;12;7
+350: Module 14;1;12;8
+350 Lab: Phase 5;1;12;8
+300: Module 15 Quiz + Lab;1;12;10
+417: Final Exam;1;12;13
