@@ -14,7 +14,7 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <TextField layoutX="381.0" layoutY="315.0" />
+      <TextField fx:id="editName" layoutX="381.0" layoutY="315.0" />
       <Label layoutX="324.0" layoutY="310.0" text="Task:">
          <font>
             <Font size="24.0" />
@@ -31,13 +31,12 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label text="Label" />
-      <Label layoutX="460.0" layoutY="166.0" text="selected task">
+      <Label layoutX="460.0" layoutY="166.0">
          <font>
             <Font name="System Italic" size="27.0" />
          </font>
       </Label>
-      <DatePicker layoutX="654.0" layoutY="315.0" />
+      <DatePicker fx:id="editDate" layoutX="654.0" layoutY="315.0" />
       <Label layoutX="597.0" layoutY="310.0" text="Date:">
          <font>
             <Font size="24.0" />

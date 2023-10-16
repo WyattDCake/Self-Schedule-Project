@@ -5,12 +5,23 @@ public class Event implements Comparable<Event>{
     private int month;
     private int day;
 
-    
+    public Event(){
+        this.eventName = "";
+        this.eventID = 0;
+        this.month = 0;
+        this.day = 0;
+    }
     public Event(String name,int id,int m,int d){
         this.eventName = name;
         this.eventID = id;
         this.month = m;
         this.day = d;
+    }
+    public Event(Event event){
+        this.eventName = event.getName();
+        this.eventID = event.getID();
+        this.month = event.getMonth();
+        this.day = event.getDay();
     }
     
     @Override
@@ -61,6 +72,9 @@ public class Event implements Comparable<Event>{
 
     public void setMonth(int m){
         this.month = m;
+    }
+    public String getDate(){
+         return(month + "/" +day);
     }
 
     public String display(){

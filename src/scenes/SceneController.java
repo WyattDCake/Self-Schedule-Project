@@ -14,9 +14,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Pagination;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -26,6 +31,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class SceneController {
 
@@ -34,13 +41,12 @@ public class SceneController {
     private Parent root;
     private int currentPage;
     private int maxPerPage = 6;
-    String css = this.getClass().getResource("sceneDesign.css").toExternalForm();
-    InputOutput inputOutput;
-    ArrayList<Event> schedule;
+    private String css = this.getClass().getResource("sceneDesign.css").toExternalForm();
+    private InputOutput inputOutput;
+    private ArrayList<Event> schedule;
     private Image mainImage = new Image("main.png");
-
     @FXML
-    private Text displayText = new Text();
+    private Label editLabel = new Label();
     @FXML
     private ImageView mainView = new ImageView();
     @FXML
@@ -49,6 +55,8 @@ public class SceneController {
     private DatePicker otherDate = new DatePicker();
     @FXML
     private DatePicker workDate = new DatePicker();
+    @FXML
+    private DatePicker editDate = new DatePicker();
     @FXML
     private TextField classID = new TextField();
     @FXML
@@ -60,7 +68,11 @@ public class SceneController {
     @FXML
     private TextField endTime = new TextField();
     @FXML
+    private TextField editName = new TextField();
+    @FXML
     private Pagination displayPagination = new Pagination();
+    @FXML
+    private AnchorPane editPane = new AnchorPane();
 
     @FXML
     public void initialize(){
@@ -68,8 +80,6 @@ public class SceneController {
         inputOutput = new InputOutput();
         schedule = inputOutput.inputSchedule();
         Collections.sort(schedule);
-        //display schedule needs to be here
-        displaySchedule();
         //set mainView = mainImage
         mainView.setImage(mainImage);
         //set up display pages
@@ -125,22 +135,41 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void switchToEditPopUp(Event task){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editScenePopUp.fxml"));
+            Parent root = loader.load();
+
+            Stage editStage = new Stage();
+            editStage.setTitle("Edit Task");
+            Scene editScene = new Scene(root);
+            
+            editPane = (AnchorPane) root.lookup("#editPane");
+
+            editLabel.setText(task.display());
+            editName.setPromptText(task.getName());
+            editDate.setPromptText(task.getDate());
+            Button saveButton = new Button("Save");
+            saveButton.setOnAction(event -> {
+                editTask(task);
+                editStage.close();
+            });
+            saveButton.setLayoutX(501);
+            saveButton.setLayoutY(160);
+            editPane.getChildren().add(saveButton);
+
+            editScene.getStylesheets().add(css);
+            editStage.setScene(editScene);
+            editStage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
     public void exitProgram(ActionEvent event) throws IOException{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
         inputOutput.close();
-    }
-    @FXML
-    public void displaySchedule(){
-        StringBuilder text = new StringBuilder();
-        for(Event event : schedule){
-            text.append(event.getName()).append("\n");
-            text.append("   Due: "+event.getMonth()+"/"+event.getDay()+"\n");
-        }
-        displayText.setText(text.toString());
-    }
-    public void addEditButtons(){
-        
     }
     @FXML
     public void addSchoolWork(ActionEvent event){
@@ -199,7 +228,6 @@ public class SceneController {
         int fromIndex = pageIndex * maxPerPage;
         int toIndex = Math.min(fromIndex + maxPerPage, schedule.size());
         List<Event> eventString = schedule.subList(fromIndex, toIndex);
-        //testing buttons
         eventView.setCellFactory(param -> new ListCell<Event>(){
             @Override
             protected void updateItem(Event item, boolean empty){
@@ -213,33 +241,26 @@ public class SceneController {
                     Button editButton = new Button ("Edit");
 
                     Button completedButton = new Button ("Completed");
-
+                    
                     editButton.setOnAction(event ->{
-                        System.out.println("done");
+                             switchToEditPopUp(item);
                     });
                     
                     completedButton.setOnAction(event ->{
                         System.out.println("done");
+                        System.out.println(item);
                     });
                     
                     HBox eventHbox = new HBox(label);
-
                     HBox buttonHbox = new HBox(editButton,completedButton);
-
                     buttonHbox.setSpacing(50);
-
                     buttonHbox.setAlignment(Pos.CENTER_RIGHT);
-
-                    HBox.setMargin(buttonHbox,new Insets(0,0,0,200));
-                    
+                    HBox.setMargin(buttonHbox,new Insets(0,0,0,420));
                     HBox hbox = new HBox(eventHbox,buttonHbox);
-                    
                     setGraphic(hbox);
                 }
             }
-
         });
-
         ObservableList<Event> observableEventList = FXCollections.observableArrayList((eventString));
         eventView.setItems(observableEventList);
         return eventView;
@@ -257,5 +278,14 @@ public class SceneController {
             currentPage++;
             displayPagination.setCurrentPageIndex(currentPage);
         }
+    }
+    @FXML
+    public void editTask(Event task){
+        LocalDate date = editDate.getValue();
+        int month = Integer.parseInt(date.format(DateTimeFormatter.ofPattern("MM")));
+        int day = Integer.parseInt(date.format(DateTimeFormatter.ofPattern("dd")));
+        schedule.add(new Event(editName.getText(),task.getID(),month,day));
+        schedule.remove(schedule.indexOf(task));
+        inputOutput.outputSchedule(schedule);
     }
 }
