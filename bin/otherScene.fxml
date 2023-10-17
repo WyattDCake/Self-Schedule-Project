@@ -14,11 +14,19 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <DatePicker fx:id="otherDate" layoutX="703.0" layoutY="348.0" />
-      <TextField fx:id="otherTask" layoutX="420.0" layoutY="348.0" />
-      <Label layoutX="488.0" layoutY="335.0" prefHeight="17.0" prefWidth="373.0" text=" Task                                                          Due Date" />
+      <DatePicker fx:id="otherDate" layoutX="782.0" layoutY="360.0" prefHeight="35.0" prefWidth="348.0" />
+      <TextField fx:id="otherTask" layoutX="215.0" layoutY="360.0" prefHeight="35.0" prefWidth="350.0" />
       <Button layoutX="14.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="50.0" prefWidth="150.0" text="Back to Main" />
-      <Button layoutX="1116.0" layoutY="648.0" mnemonicParsing="false" onAction="#addOtherTask" prefHeight="50.0" prefWidth="150.0" text="Add Other Task" />
-      <Label layoutX="14.0" layoutY="639.0" prefHeight="17.0" prefWidth="1244.0" text="w/o saving                                                                                                                                                                                                                                                                                                                                               w/saving" />
+      <Button layoutX="1116.0" layoutY="656.0" mnemonicParsing="false" onAction="#addOtherTask" prefHeight="50.0" prefWidth="150.0" text="Add Other Task" />
+      <Label layoutX="150.0" layoutY="360.0" text="Task:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="715.0" layoutY="360.0" text="Date:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

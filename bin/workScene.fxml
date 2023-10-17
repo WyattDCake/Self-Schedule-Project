@@ -14,22 +14,28 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="50.0" prefWidth="150.0" text="Back to Main" />
-      <Button layoutX="1116.0" layoutY="656.0" mnemonicParsing="false" onAction="#addWorkShift" prefHeight="50.0" prefWidth="150.0" text="Add Shift" />
-      <Label layoutX="209.0" layoutY="232.0" text="Shift Starts at: ">
+      <Button layoutX="14.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="50.0" prefWidth="150.0" text="Back to Main">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button layoutX="1116.0" layoutY="656.0" mnemonicParsing="false" onAction="#addWorkShift" prefHeight="50.0" prefWidth="150.0" text="Add Shift">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label layoutX="100.0" layoutY="360.0" text="Shift Starts at: ">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="209.0" layoutY="267.0" text="Shift Ends at: ">
+      <Label layoutX="460.0" layoutY="360.0" text="Shift Ends at: ">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="startTime" layoutX="362.0" layoutY="237.0" promptText="HH:mm AM/PM" />
-      <TextField fx:id="endTime" layoutX="362.0" layoutY="272.0" promptText="HH:mm AM/PM" />
-      <DatePicker fx:id="workDate" layoutX="689.0" layoutY="230.0" prefHeight="68.0" prefWidth="177.0" />
-      <Label layoutX="558.0" layoutY="250.0" text="Shift Date:">
+      <TextField fx:id="startTime" layoutX="260.0" layoutY="360.0" prefHeight="35.0" prefWidth="100.0" promptText="HH:mm AM/PM" />
+      <TextField fx:id="endTime" layoutX="611.0" layoutY="360.0" prefHeight="35.0" prefWidth="100.0" promptText="HH:mm AM/PM" />
+      <DatePicker fx:id="workDate" layoutX="937.0" layoutY="360.0" prefHeight="35.0" prefWidth="143.0" />
+      <Label layoutX="820.0" layoutY="360.0" text="Shift Date:">
          <font>
             <Font size="24.0" />
          </font>

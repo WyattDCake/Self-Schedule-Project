@@ -137,7 +137,7 @@ public class SceneController {
             editPane = (AnchorPane) root.lookup("#editPane");
 
             Label editLabel = new Label(task.display());
-            Font italicFont = Font.font("System",FontPosture.ITALIC,20);
+            Font italicFont = Font.font("System",FontPosture.ITALIC,24);
 
             TextField editName = new TextField();
             editName.setPromptText(task.getName());
@@ -164,15 +164,15 @@ public class SceneController {
                 inputOutput.outputSchedule(schedule);
                 editStage.close();
             });
-
-            saveButton.setLayoutX(501);
-            saveButton.setLayoutY(160);
-            editLabel.setLayoutX(143);
+            saveButton.setPrefSize(70,25);
+            saveButton.setLayoutX(516);
+            saveButton.setLayoutY(161);
+            editLabel.setLayoutX(160);
             editLabel.setLayoutY(14);
-            editName.setLayoutX(97);
-            editName.setLayoutY(88);
-            editDate.setLayoutX(353);
-            editDate.setLayoutY(88);
+            editName.setLayoutX(107);
+            editName.setLayoutY(90);
+            editDate.setLayoutX(358);
+            editDate.setLayoutY(90);
 
             editLabel.setFont(italicFont);
 
@@ -272,6 +272,7 @@ public class SceneController {
                     
                     completedButton.setOnAction(event ->{
                         Alert confirmationAlert = new Alert(AlertType.CONFIRMATION);
+                        confirmationAlert.getDialogPane().getStylesheets().add(css);
                         confirmationAlert.setHeaderText("Have you Completed: "+item.display());
                         if(confirmationAlert.showAndWait().get() == ButtonType.OK){
                             schedule.remove(schedule.indexOf(item));

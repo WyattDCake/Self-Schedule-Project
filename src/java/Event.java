@@ -78,7 +78,7 @@ public class Event implements Comparable<Event>{
     }
 
     public String display(){
-        return(eventName+"\n   Due: " + month + "/" +day);
+        return(eventName+"   Due: " + month + "/" +day);
     }
     @Override
     public String toString(){
